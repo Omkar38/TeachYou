@@ -1,5 +1,7 @@
 # GenAI Whiteboard Explainer MVP
 
+![Frontend CI](https://github.com/Omkar38/TeachYou/actions/workflows/frontend-build.yml/badge.svg?branch=main)
+
 Web-only MVP that turns **PDFs** or **plain-text prompts** into an English **whiteboard-style** explainer video:
 
 - **Quick mode**: 2–3 scenes (fast)
