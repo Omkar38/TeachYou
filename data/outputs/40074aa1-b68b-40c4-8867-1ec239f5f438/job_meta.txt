@@ -1,0 +1,3 @@
+job_id=40074aa1-b68b-40c4-8867-1ec239f5f438
+mode=quick
+doc=DFS.txt

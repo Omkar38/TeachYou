@@ -1,0 +1,3 @@
+Okay, let’s make sense of how Depth-First Search, or DFS, actually works. Think of it like exploring a maze – you pick a path and keep going until you hit a dead end, then you backtrack and try another. That’s recursion in action! 
+
+DFS uses a ‘stack’ – imagine a pile of plates. We add nodes to this stack as we visit them. When we’re at a node, we explore all its unvisited neighbors, adding *those* nodes to the stack.  Then, we process the neighbor that was just added. When we reach a dead end, we pop a node off the stack – that’s the ‘backtracking’ – and try a different path. This continues until every reachable node has been visited. It’s a really efficient way to systematically explore a graph, and a common pattern you’ll see in LeetCode problems!

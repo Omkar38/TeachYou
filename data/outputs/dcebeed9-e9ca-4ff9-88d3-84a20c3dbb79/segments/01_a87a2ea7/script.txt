@@ -1,0 +1,7 @@
+Okay, let’s tackle how these ‘gen AI’ models actually *learn*. Think of it like teaching a really, really smart student. We feed the model massive amounts of data – text, images, whatever it’s designed for. This data is like the student’s textbook. 
+
+Initially, the model makes lots of mistakes, predicting the wrong words or images. But we – or rather, the algorithms – give it feedback. ‘Nope, that’s wrong!’ We adjust its internal ‘weights’ – essentially, how it prioritizes different pieces of information. 
+
+Over time, through *training*, the model gets better and better at recognizing patterns. It learns the relationships between things. Then, when you ask it to generate something new – like write a story or create an image – it’s using those learned patterns to make predictions and build something fresh. It's not *thinking*, it's incredibly sophisticated pattern matching. 
+
+Key Terms: *Training*, *Algorithms*, *Weights*.

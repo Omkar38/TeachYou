@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<style>
+:root{
+  --bg: #0b1220;
+  --panel: #0f172a;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #0f766e;
+}
+html,body{ margin:0; padding:0; width:100%; height:100%; background:var(--bg); color:var(--text); font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; overflow:hidden; }
+.scene{ width:720px; height:1280px; padding:24px; box-sizing:border-box; display:flex; flex-direction:column; }
+.title{ font-size:36px; font-weight:700; letter-spacing:-0.02em; margin:4px 0 14px; opacity:0; animation:fadeIn 0.5s ease forwards; }
+.grid{ display:grid; grid-template-columns: 1fr 1fr; gap:16px; flex:1; }
+.stack{ display:flex; flex-direction:column; gap:16px; flex:1; }
+.card{ background:var(--panel); border:1px solid rgba(148,163,184,0.15); border-radius:18px; padding:18px 18px; box-shadow:0 10px 30px rgba(0,0,0,0.25); }
+.bullets{ list-style:none; padding:0; margin:0; }
+.bullets li{
+  font-size:26px;
+  line-height:1.25;
+  margin: 10px 0;
+  padding-left: 18px;
+  position:relative;
+  opacity:0;
+  transform: translateY(8px);
+  animation:pop 0.45s ease forwards;
+}
+.bullets li:before{ content:''; width:10px; height:10px; border-radius:999px; background:var(--accent); position:absolute; left:0; top: 0.55em; }
+.diagramWrap{ width:100%; height:100%; display:flex; flex-direction:column; }
+.diagram{ width:100%; flex:1; display:flex; align-items:center; justify-content:center; }
+.diagramCaption{ font-size:14px; color:var(--muted); margin-top:10px; }
+.diagramCode{ width:100%; height:100%; color:var(--text); background:rgba(0,0,0,0.35); border:1px solid rgba(148,163,184,0.20); border-radius:14px; padding:12px; font-size:14px; overflow:auto; }
+@keyframes fadeIn{ to{ opacity:1; } }
+@keyframes pop{ to{ opacity:1; transform:translateY(0); } }
+</style>
+</head>
+<body>
+<div class='scene'>
+  
+          <div class="title">Depth-First Search (DFS) Explained</div>
+          <div class="stack">
+            <div class="card bulletsCard">
+              <ul class="bullets"></ul>
+            </div>
+            
+          </div>
+        
+</div>
+
+</body>
+</html>

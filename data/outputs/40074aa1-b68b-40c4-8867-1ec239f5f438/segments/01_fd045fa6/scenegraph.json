@@ -1,0 +1,59 @@
+{
+  "version": "1.0",
+  "title": "Depth-First Search (DFS) Explained",
+  "layout": {
+    "template": "whiteboard",
+    "notes": "Clean, editable scene optimized for text clarity."
+  },
+  "elements": [
+    {
+      "type": "text",
+      "content": "Think of it like exploring a maze – you pick a path and keep going until you hit a dead end, then you backtrack.",
+      "style": "primary",
+      "size": "medium",
+      "position": {
+        "x": 20,
+        "y": 50
+      }
+    },
+    {
+      "type": "text",
+      "content": "DFS uses a ‘stack’ – imagine a pile of plates.",
+      "style": "primary",
+      "size": "medium",
+      "position": {
+        "x": 20,
+        "y": 150
+      }
+    },
+    {
+      "type": "text",
+      "content": "We add nodes to this stack as we visit them.",
+      "style": "primary",
+      "size": "medium",
+      "position": {
+        "x": 20,
+        "y": 250
+      }
+    },
+    {
+      "type": "text",
+      "content": "Explore neighbors, add to stack; backtrack when a dead end is reached.",
+      "style": "primary",
+      "size": "medium",
+      "position": {
+        "x": 20,
+        "y": 350
+      }
+    },
+    {
+      "type": "mermaid",
+      "content": "```mermaid\n  graph TD\n      A[Start Node] --> B(Neighbor 1)\n      A --> C(Neighbor 2)\n      B --> D(Neighbor of B)\n      C --> E(Neighbor of C)\n      D -- Dead End -- F\n      E -- Dead End -- G\n    ```",
+      "style": "secondary",
+      "position": {
+        "x": 600,
+        "y": 100
+      }
+    }
+  ]
+}

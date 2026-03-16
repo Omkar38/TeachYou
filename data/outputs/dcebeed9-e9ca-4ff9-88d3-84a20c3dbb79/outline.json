@@ -1,0 +1,24 @@
+{
+  "title": "Generative AI",
+  "bullets": [
+    "Introduce Generative AI as a new type of AI focused on creation.",
+    "Explain that Generative AI models learn patterns from data to generate new content.",
+    "Highlight the difference between Generative AI and traditional AI (discriminative).",
+    "Discuss the core concept of 'latent space' and how models represent data.",
+    "Describe the process of sampling from the latent space to create outputs.",
+    "Provide examples of Generative AI applications: text, images, audio.",
+    "Briefly touch on the role of large datasets in training Generative AI.",
+    "Emphasize the iterative nature of Generative AI development and refinement."
+  ],
+  "key_phrases": [
+    "Generative AI",
+    "AI models",
+    "latent space",
+    "data patterns",
+    "sampling",
+    "large datasets",
+    "discriminative AI",
+    "content generation"
+  ],
+  "objectives": []
+}
