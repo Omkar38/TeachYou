@@ -1,5 +1,0 @@
-Okay, let's talk about how RAG – Retrieval-Augmented Generation – actually works. Think of it like this: it’s a two-step process. First, we need to *find* the right information. This is called ‘Retrieval’. We’re essentially searching a huge database of text – like a giant library – for the most relevant chunks of information to our question.  
-
-Next, we use that found information to *generate* a response. This is the ‘Generation’ part. The AI takes the retrieved data and crafts an answer, making it more accurate and informed.  So, Retrieval gets the facts, and Generation builds the answer. It’s a powerful combination! 
-
-**Key Terms:** *Retrieval* (finding relevant information), *Generation* (creating a response based on that information).

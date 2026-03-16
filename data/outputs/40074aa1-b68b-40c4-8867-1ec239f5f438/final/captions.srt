@@ -1,7 +1,0 @@
-1
-00:00:00,000 --> 00:00:48,129
-Problem & Motivation
-
-2
-00:00:48,129 --> 00:01:35,112
-Method in Simple Terms

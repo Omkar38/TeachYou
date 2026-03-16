@@ -1,2 +1,0 @@
-file '/Users/omkarter/Downloads/SketchWave_Studio 2/data/outputs/dcebeed9-e9ca-4ff9-88d3-84a20c3dbb79/segments/00_6ebbb9a1/scene.mp4'
-file '/Users/omkarter/Downloads/SketchWave_Studio 2/data/outputs/dcebeed9-e9ca-4ff9-88d3-84a20c3dbb79/segments/01_a87a2ea7/scene.mp4'

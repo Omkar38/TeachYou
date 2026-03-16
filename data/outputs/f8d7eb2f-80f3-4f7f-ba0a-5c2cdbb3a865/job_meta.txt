@@ -1,3 +1,0 @@
-job_id=f8d7eb2f-80f3-4f7f-ba0a-5c2cdbb3a865
-mode=quick
-doc=Test.txt

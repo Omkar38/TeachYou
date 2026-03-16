@@ -1,3 +1,0 @@
-job_id=dcebeed9-e9ca-4ff9-88d3-84a20c3dbb79
-mode=quick
-doc=Generative AI.txt
