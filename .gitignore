@@ -1,0 +1,22 @@
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.env
+.env.*
+.DS_Store
+
+# Python / runtime artifacts
+/data/uploads/
+/data/extracted/
+/data/assets/
+/data/outputs/
+
+# Node / Next.js
+node_modules/
+**/node_modules/
+.next/
+out/
+dist/
+build/
