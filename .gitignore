@@ -2,27 +2,43 @@
 __pycache__/
 *.pyc
 *.pyo
-
-# Virtual envs
 .venv/
 venv/
 
 # Environment files (do NOT commit secrets)
 .env
-# Keep a sample env tracked, so remove from ignore:
-# .env.example
+.env.*
+# Keep example env tracked
+!.env.example
 
 # macOS
 .DS_Store
 
-# Data / outputs (ignore heavy outputs by default)
-data/outputs/
-data/uploads/
-data/extracted/
-data/assets/
 
-# If you want to ignore the entire data folder (very large), uncomment:
-# data/
+# Environment files (do NOT commit secrets)
+.env
+# Keep a sample env tracked: .env.example (do not list it)
+
+node_modules/
+**/node_modules/
+.next/
+out/
+dist/
+build/
+
+# IDEs / editors
+.vscode/
+.idea/
+
+# Logs / temp
+*.log
+tmp/
+*.tmp
+
+# Database / local data files
+*.sqlite3
+*.db
+data/assets/
 
 # Node / Next.js / JS builds
 node_modules/
