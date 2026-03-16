@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  @apply bg-neutral-50 text-neutral-900;
+}
+
+/* nicer scrollbars for webkit */
+*::-webkit-scrollbar { width: 12px; }
+*::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 999px; border: 3px solid transparent; background-clip: content-box; }

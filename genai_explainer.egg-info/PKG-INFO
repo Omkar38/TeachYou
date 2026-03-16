@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: genai-explainer
+Version: 0.1.0
+Summary: Offline paper-to-explainer: PDF -> outline -> narrated segments -> slideshow MP4
+Requires-Python: >=3.10
+Requires-Dist: fastapi>=0.110
+Requires-Dist: uvicorn[standard]>=0.27
+Requires-Dist: pydantic>=2.6
+Requires-Dist: pydantic-settings>=2.2
+Requires-Dist: sqlalchemy>=2.0
+Requires-Dist: alembic>=1.13
+Requires-Dist: python-multipart>=0.0.9
+Requires-Dist: celery>=5.3
+Requires-Dist: redis>=5.0
+Requires-Dist: pypdf>=4.0
+Requires-Dist: rank-bm25>=0.2.2
+Requires-Dist: pillow>=10.0
+Requires-Dist: httpx>=0.27
+Requires-Dist: duckduckgo-search>=6.3.0
+Requires-Dist: playwright>=1.41.2
+Requires-Dist: psycopg2-binary>=2.9.9
+Requires-Dist: google-cloud-texttospeech>=2.16.0

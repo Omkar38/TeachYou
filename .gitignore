@@ -1,62 +1,14 @@
-# Python artifacts
 __pycache__/
 *.pyc
 *.pyo
 .venv/
 venv/
-
-# Environment files (do NOT commit secrets)
 .env
 .env.*
-# Keep example env tracked
-!.env.example
-
-# macOS
 .DS_Store
 
-
-# Environment files (do NOT commit secrets)
-.env
-# Keep a sample env tracked: .env.example (do not list it)
-
-node_modules/
-**/node_modules/
-.next/
-out/
-dist/
-build/
-
-# IDEs / editors
-.vscode/
-.idea/
-
-# Logs / temp
-*.log
-tmp/
-*.tmp
-
-# Database / local data files
-*.sqlite3
-*.db
-data/assets/
-
-# Node / Next.js / JS builds
-node_modules/
-**/node_modules/
-.next/
-out/
-dist/
-build/
-
-# IDEs / editors
-.vscode/
-.idea/
-
-# Logs / temp
-*.log
-tmp/
-*.tmp
-
-# Database / local data files
-*.sqlite3
-*.db
+# runtime artifacts
+/data/uploads/
+/data/extracted/
+/data/assets/
+/data/outputs/
