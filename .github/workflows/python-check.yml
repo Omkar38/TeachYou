@@ -1,0 +1,28 @@
+name: Python sanity check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  syntax-check:
+    name: Syntax & quick checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Show Python
+        run: python --version
+
+      - name: Quick syntax check (compile all .py files)
+        run: |
+          # Compile all Python files to catch syntax errors without installing heavy deps
+          python -m compileall -q .
