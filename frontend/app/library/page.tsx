@@ -43,7 +43,7 @@ export default function LibraryPage() {
       <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((it) => (
           <div key={it.id} className="relative">
-            <JobCard item={it} />
+            <JobCard job={it} thumbnailUrl={null} onDelete={() => setToDelete(it.id)} />
             <button
               className="absolute right-3 top-3 rounded-xl bg-white/90 p-2 ring-1 ring-neutral-200 hover:bg-white"
               onClick={() => setToDelete(it.id)}

@@ -108,11 +108,22 @@ export async function createPromptDocument(
   });
 }
 
-export async function createJob(document_id: string, mode: string = "quick"): Promise<{ job_id: string }> {
-  return apiFetch<{ job_id: string }>("/jobs", {
+// createJob supports either a mode string or an options object that will be passed
+// through to the backend. This allows callers to pass additional job options
+// such as video_style, layout, etc.
+export async function createJob(
+  document_id: string,
+  modeOrOpts: string | Record<string, any> = "quick"
+): Promise<{ job_id: string }> {
+  const payload: Record<string, any> =
+    typeof modeOrOpts === "string"
+      ? { document_id, mode: modeOrOpts }
+      : { document_id, ...(modeOrOpts || {}) };
+
+  return apiFetch<{ job_id: string }>(`/jobs`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ document_id, mode }),
+    body: JSON.stringify(payload),
   });
 }
 
@@ -146,19 +157,101 @@ export async function fetchTextAsset(assetId: string): Promise<string> {
   return await res.text();
 }
 
-export async function uploadAndCreateJob(file: File, mode: "quick" | "deep" = "quick") {
+export type JobCreateOptions = {
+  mode?: "quick" | "deep";
+  video_style?: string;
+  layout?: string;
+  title?: string;
+  [k: string]: any;
+};
+
+// uploadAndCreateJob(file, modeOrOpts)
+export async function uploadAndCreateJob(
+  file: File,
+  modeOrOpts: string | JobCreateOptions = "quick"
+) {
   const { document_id } = await uploadDocument(file);
-  const { job_id } = await createJob(document_id, mode);
+  const { job_id } = await createJob(document_id, modeOrOpts as any);
   return { job_id, document_id };
 }
 
-export async function promptAndCreateJob(text: string, mode: "quick" | "deep" = "quick", title?: string) {
-  const { document_id } = await createPromptDocument(text, title);
-  const { job_id } = await createJob(document_id, mode);
+// promptAndCreateJob(text, modeOrOpts)
+export async function promptAndCreateJob(
+  text: string,
+  modeOrOpts: string | JobCreateOptions = "quick",
+  title?: string
+) {
+  const opts: JobCreateOptions =
+    typeof modeOrOpts === "string" ? ({ mode: modeOrOpts } as JobCreateOptions) : (modeOrOpts || {});
+  if (title) opts.title = title;
+  const { document_id } = await createPromptDocument(text, opts.title);
+  const { job_id } = await createJob(document_id, opts as any);
   return { job_id, document_id };
 }
 
 // Backward-compatible alias used in earlier drafts.
 export async function uploadAndCreateQuickJob(file: File) {
   return uploadAndCreateJob(file, "quick");
+}
+
+// Segment helpers (used by app/jobs/[id]/page.tsx)
+export type Segment = {
+  id: string;
+  segment_index: number;
+  title?: string | null;
+  objective?: string | null;
+  status: string;
+  duration_target_sec?: number | null;
+  // content + overrides (optional)
+  script?: string | null;
+  script_override?: string | null;
+  scenegraph?: Record<string, any> | null;
+  scenegraph_override?: Record<string, any> | null;
+};
+
+// getSegment supports both: getSegment(segmentId) and getSegment(jobId, segmentId)
+export async function getSegment(a: string, b?: string): Promise<Segment> {
+  let path: string;
+  if (b) {
+    // called as getSegment(jobId, segmentId)
+    path = `/jobs/${a}/segments/${b}`;
+  } else {
+    // called as getSegment(segmentId)
+    path = `/segments/${a}`;
+  }
+  return apiFetch<Segment>(path);
+}
+
+// updateSegment supports both signatures:
+// updateSegment(segmentId, body) and updateSegment(jobId, segmentId, body)
+export async function updateSegment(a: string, b: any, c?: any): Promise<Segment> {
+  let path: string;
+  let body: any;
+  if (c !== undefined) {
+    // updateSegment(jobId, segmentId, body)
+    path = `/jobs/${a}/segments/${b}`;
+    body = c;
+  } else {
+    // updateSegment(segmentId, body)
+    path = `/segments/${a}`;
+    body = b;
+  }
+  return apiFetch<Segment>(path, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+}
+
+// regenerateSegment supports regenerateSegment(segmentId) and regenerateSegment(jobId, segmentId)
+export async function regenerateSegment(a: string, b?: string): Promise<{ job_id?: string }>{
+  let path: string;
+  if (b) {
+    path = `/jobs/${a}/segments/${b}/regenerate`;
+  } else {
+    path = `/segments/${a}/regenerate`;
+  }
+  return apiFetch<{ job_id?: string }>(path, {
+    method: "POST",
+  });
 }
