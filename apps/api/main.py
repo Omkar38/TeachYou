@@ -12,6 +12,10 @@ app = FastAPI(title="GenAI Paper-to-Explainer")
 
 # Dev-friendly CORS (frontend typically runs on http://127.0.0.1:5173).
 # If you deploy, tighten this.
+import os as _os
+
+_extra_origins = [o.strip() for o in _os.getenv("ALLOWED_ORIGINS", "").split(",") if o.strip()]
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -19,7 +23,10 @@ app.add_middleware(
         "http://localhost:5173",
         "http://127.0.0.1:3000",
         "http://localhost:3000",
+        *_extra_origins,
     ],
+    # Matches https://<anything>.vercel.app (preview + production deployments)
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -15,8 +15,6 @@ click-repl==0.3.0
 cryptography==46.0.4
 duckduckgo_search==8.1.1
 fastapi==0.128.1
-# Editable install with no version control (genai-explainer==0.1.0)
--e /Users/omkarter/Downloads/genai-whiteboard-mvp
 google-api-core==2.29.0
 google-auth==2.48.0
 google-cloud-texttospeech==2.34.0
