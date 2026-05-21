@@ -1,0 +1,20 @@
+FROM mcr.microsoft.com/playwright/python:v1.41.2-jammy
+
+WORKDIR /app
+
+# System deps for video/audio generation
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ffmpeg \
+    espeak-ng \
+    fonts-dejavu-core \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY pyproject.toml README.md /app/
+COPY apps /app/apps
+COPY core /app/core
+COPY db /app/db
+
+RUN pip install --no-cache-dir -U pip \
+    && pip install --no-cache-dir .
+
+CMD ["celery", "-A", "apps.worker.celery_app.celery_app", "worker", "-l", "INFO", "-Q", "default", "-c", "4"]
